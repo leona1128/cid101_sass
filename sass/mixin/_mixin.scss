@@ -4,17 +4,15 @@
 
 //==== 位移 ===
 // @mixin top{}
-@mixin top($top){
+@mixin top($top , $left: null) {
     position: relative;
     top: $top;
+    left: $left;
 }
 
 //呼叫 top
 .logo {
-  @include top(5px);
-}
-nav {
- @include top(10px);
+    @include top(0px);
 }
 @mixin layout(){
   @if $w==100{
@@ -35,4 +33,30 @@ nav {
     
   }
 }
+
+nav {
+    @include top(0px);
+}
+
+@mixin center(){
+    margin: auto;
+}
+
+// 判斷式
+@mixin layout($w) {
+    @if $w ==100 {
+        width: 100%;
+    }
+    @else if $w < 100 {
+        width: $w *1%;
+        @include center();
+    }
+    @else {
+        width: $w +px;
+        @include center();
+    }
+}
+
+
+
 
