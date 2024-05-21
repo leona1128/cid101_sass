@@ -1,4 +1,5 @@
 //宣告
+//函數
 
 
 //==== 位移 ===
@@ -14,5 +15,24 @@
 }
 nav {
  @include top(10px);
+}
+@mixin layout(){
+  @if $w==100{
+
+    width: 100%;
+    @include center();
+
+  }@else if $w<100{
+
+    width: $w*1%;
+    @include center();
+
+  }@else{
+
+    width: $w+px;
+    margin: 0 auto;
+    @include center();
+    
+  }
 }
 
